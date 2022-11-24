@@ -6,29 +6,31 @@ import {
 
 import React, { useEffect, useRef } from "react"
 
-import { createReactEditorJS } from 'react-editor-js'
-// import EditorJS from '@editorjs/editorjs';
+import EditorJS from '@editorjs/editorjs';
 
 import ResizeObserver from "resize-observer-polyfill"
-
-const ReactEditorJS = createReactEditorJS()
 
 
 interface EditorJSProps extends ComponentProps {
     args: any
 }
 
-const EditorJS = ({ args }: EditorJSProps) => {
+
+
+const EditorJSDIV = ({ args }: EditorJSProps) => {
     const divRef = useRef<HTMLDivElement>(null)
 
-    let timeout: NodeJS.Timeout
-
-    // const handleChange = (api: API, event: CustomEvent) => {
-    //     clearTimeout(timeout)
-    //     timeout = setTimeout(() => {
-    //       Streamlit.setComponentValue(editor.save())
-    //     }, 200)
-    //   }
+    const editor = new EditorJS({ 
+      /** 
+       * Id of Element that should contain the Editor 
+       */ 
+      holder: 'editorjs',
+    
+      onChange: (api, event) => {
+        Streamlit.setComponentValue(JSON.stringify(editor.save()))
+      }
+    
+    });
 
     useEffect(() => {
         Streamlit.setFrameHeight()
@@ -44,14 +46,13 @@ const EditorJS = ({ args }: EditorJSProps) => {
       })
 
 
+
     return <div ref={divRef}>
-        <ReactEditorJS 
-            defaultValue={args.defaultValue} 
-            // onChange={handleChange}
-        />
+        <div id="editorjs"></div>
     </div>
 }
 
+let timeout: NodeJS.Timeout
 
 
-export default withStreamlitConnection(EditorJS)
+export default withStreamlitConnection(EditorJSDIV)

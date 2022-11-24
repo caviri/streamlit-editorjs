@@ -116,7 +116,7 @@ if _RELEASE:
 
     content = st_editorjs(
         placeholder=placeholder,
-        readonly=read_only,
+        readonly=read_only
     )
 
     st.write(content)
