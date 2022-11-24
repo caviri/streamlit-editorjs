@@ -18,7 +18,7 @@
     "react-scripts": "3.4.1",
     "resize-observer-polyfill": "^1.5.1",
     "streamlit-component-lib": "^1.1.1",
-    "typescript": "~3.7.2"
+    "typescript": "^4.3.5"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,10 +1,10 @@
 import os
 import streamlit.components.v1 as components
 
-_RELEASE = False
+_RELEASE = True
 
 if not _RELEASE:
-    _st_editorjs = components.declare_component("streamlit_editorjs")#, url="http://localhost:3004")
+    _st_editorjs = components.declare_component("streamlit_editorjs", url="http://localhost:3000")
 else:
     parent_dir = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(parent_dir, "frontend/build")
@@ -97,7 +97,6 @@ def st_editorjs(
     return _st_editorjs(
         defaultValue=str(value),
         placeholder=str(placeholder),
-        html=html,
         toolbar=toolbar,
         history=history,
         preserveWhitespace=preserve_whitespace,
@@ -108,17 +107,15 @@ def st_editorjs(
     )
 
 
-if not _RELEASE:
+if _RELEASE:
     import streamlit as st
 
     st.sidebar.title(":computer: EDITORJS Editor")
     placeholder = st.sidebar.text_input("Placeholder", "Some placeholder text")
-    html = st.sidebar.checkbox("Return HTML", False)
     read_only = st.sidebar.checkbox("Read only", False)
 
     content = st_editorjs(
         placeholder=placeholder,
-        html=html,
         readonly=read_only,
     )
 

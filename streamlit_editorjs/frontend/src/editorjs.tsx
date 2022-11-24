@@ -5,7 +5,10 @@ import {
   } from "streamlit-component-lib";
 
 import React, { useEffect, useRef } from "react"
+
 import { createReactEditorJS } from 'react-editor-js'
+// import EditorJS from '@editorjs/editorjs';
+
 import ResizeObserver from "resize-observer-polyfill"
 
 const ReactEditorJS = createReactEditorJS()
@@ -20,12 +23,12 @@ const EditorJS = ({ args }: EditorJSProps) => {
 
     let timeout: NodeJS.Timeout
 
-    const handleChange = (content: string, delta: any, source: any, editor: any) => {
-        clearTimeout(timeout)
-        timeout = setTimeout(() => {
-          Streamlit.setComponentValue(args.html ? content : editor.save())
-        }, 200)
-      }
+    // const handleChange = (api: API, event: CustomEvent) => {
+    //     clearTimeout(timeout)
+    //     timeout = setTimeout(() => {
+    //       Streamlit.setComponentValue(editor.save())
+    //     }, 200)
+    //   }
 
     useEffect(() => {
         Streamlit.setFrameHeight()
@@ -44,7 +47,7 @@ const EditorJS = ({ args }: EditorJSProps) => {
     return <div ref={divRef}>
         <ReactEditorJS 
             defaultValue={args.defaultValue} 
-            onChange={handleChange}
+            // onChange={handleChange}
         />
     </div>
 }
