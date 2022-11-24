@@ -1,11 +1,11 @@
-# 📝 Streamlit Quill
+# 📝 Streamlit EditorJS
 
 [![GitHub][github_badge]][github_link] [![PyPI][pypi_badge]][pypi_link] 
 
 ## Installation
 
 ```sh
-pip install streamlit-quill
+pip install streamlit-editorjs
 ```
 
 ## Getting started
@@ -13,7 +13,7 @@ pip install streamlit-quill
 ```python
 import streamlit as st
 
-from streamlit_quill import st_quill
+from streamlit_editorjs import editorjs
 
 # Spawn a new Quill editor
 content = st_quill()
@@ -22,18 +22,20 @@ content = st_quill()
 content
 ```
 
-## Demo
+## Development
 
-[![Open in Streamlit][share_badge]][share_link]
+```bash
+cd streamlit_editorjs/frontend
+yarn install
+yarn build
+yarn start .
+```
 
-[![Preview][share_img]][share_link]
 
-[share_badge]: https://static.streamlit.io/badges/streamlit_badge_black_white.svg
-[share_link]: https://share.streamlit.io/okld/streamlit-gallery/main?p=quill-editor
-[share_img]: https://raw.githubusercontent.com/okld/streamlit-quill/main/preview.png
+```bash
+streamlit run streamlit_editor/__init__.py
 
-[github_badge]: https://badgen.net/badge/icon/GitHub?icon=github&color=black&label
-[github_link]: https://github.com/okld/streamlit-quill
+```
 
-[pypi_badge]: https://badgen.net/pypi/v/streamlit-quill?icon=pypi&color=black&label
-[pypi_link]: https://pypi.org/project/streamlit-quill
+
+Based in editor quill for streamlit project.

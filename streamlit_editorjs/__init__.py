@@ -1,27 +1,26 @@
 import os
 import streamlit.components.v1 as components
 
-_RELEASE = True
+_RELEASE = False
 
 if not _RELEASE:
-    _st_quill = components.declare_component("streamlit_quill", url="http://localhost:3001")
+    _st_editorjs = components.declare_component("streamlit_editorjs")#, url="http://localhost:3004")
 else:
     parent_dir = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(parent_dir, "frontend/build")
-    _st_quill = components.declare_component("streamlit_quill", path=build_dir)
+    _st_editorjs = components.declare_component("streamlit_editorjs", path=build_dir)
 
 
-def st_quill(
+def st_editorjs(
     value="",
     placeholder="",
-    html=False,
     toolbar=None,
     history=None,
     preserve_whitespace=True,
     readonly=False,
     key=None
 ):
-    """Quill Editor component.
+    """EDITORJS Editor component.
 
     Parameters
     ----------
@@ -31,9 +30,6 @@ def st_quill(
     placeholder : any
         The text value of this widget when the editor is empty. It will be
         cast to str internally.
-    html : bool
-        Choose whether component return editor's content as HTML or regular
-        text. Return regular text by default.
     toolbar : list or None
         Quill toolbar configuration. For more information, see
         https://quilljs.com/docs/modules/toolbar/.
@@ -52,8 +48,8 @@ def st_quill(
 
     Returns
     -------
-    str
-        The current content of Quill editor.
+    json
+        The current content of Editorjs editor.
 
     """
     if toolbar is None:
@@ -98,7 +94,7 @@ def st_quill(
             "userOnly": False
         }
 
-    return _st_quill(
+    return _st_editorjs(
         defaultValue=str(value),
         placeholder=str(placeholder),
         html=html,
@@ -115,12 +111,12 @@ def st_quill(
 if not _RELEASE:
     import streamlit as st
 
-    st.sidebar.title(":computer: Quill Editor")
+    st.sidebar.title(":computer: EDITORJS Editor")
     placeholder = st.sidebar.text_input("Placeholder", "Some placeholder text")
     html = st.sidebar.checkbox("Return HTML", False)
     read_only = st.sidebar.checkbox("Read only", False)
 
-    content = st_quill(
+    content = st_editorjs(
         placeholder=placeholder,
         html=html,
         readonly=read_only,

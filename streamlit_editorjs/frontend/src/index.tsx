@@ -1,10 +1,10 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import Quill from "./quill"
+import EditorJS from "./editorjs"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Quill />
+    <EditorJS />
   </React.StrictMode>,
   document.getElementById("root")
 )

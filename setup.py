@@ -3,14 +3,14 @@ import setuptools
 
 
 setuptools.setup(
-    name="streamlit-quill",
-    version="0.0.3",
-    author="Ghasel",
+    name="streamlit-editorjs",
+    version="0.0.1",
+    author="caviri",
     author_email="",
-    description="Quill component for Streamlit",
+    description="EDITORJS component for Streamlit",
     long_description=(Path(__file__).parent / "README.md").read_text(),
     long_description_content_type="text/markdown",
-    url="https://github.com/Ghasel/streamlit-quill",
+    url="https://github.com/caviri/streamlit-editorjs",
     packages=setuptools.find_packages(),
     include_package_data=True,
     classifiers=[],
