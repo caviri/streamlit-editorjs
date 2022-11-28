@@ -42,6 +42,7 @@
 ::after,
 ::before {
   box-sizing: border-box;
+  /* margin-left:10px; */
 }
 html {
   font-family: sans-serif;

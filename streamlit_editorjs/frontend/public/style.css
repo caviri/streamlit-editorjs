@@ -1,3 +1,20 @@
-.ql-editor {
+.editorjs-editor {
     min-height: 18em;
+}
+
+.codex-editor__loader { height: 38px !important; }
+
+.cdx-marker {
+    background: rgba(245,235,111,0.5) !important;
+    padding: 3px 3px !important;
+    font-weight: 500 !important;
+}
+
+/* .ce-block__content,
+.ce-toolbar__content {
+    max-width: unset;
+} */
+
+.codex-editor{
+    background: white;
 }

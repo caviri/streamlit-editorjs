@@ -1,10 +1,10 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import EditorJS from "./editorjs"
+import EditorJSDIV from "./editorjs"
 
 ReactDOM.render(
   <React.StrictMode>
-    <EditorJS />
+    <EditorJSDIV />
   </React.StrictMode>,
   document.getElementById("root")
 )
