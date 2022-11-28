@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name="streamlit-editorjs",
-    version="0.0.1",
+    version="0.1.0",
     author="caviri",
     author_email="",
     description="EDITORJS component for Streamlit",
